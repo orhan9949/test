@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>Кнопка</button>
+    <script>
+       var input = document.querySelector('input');
+       var btn = document.querySelector('button');
+        function pro() {
+            // console.log(true);
+        var str = input.value,
+            open = '{[(',
+            close = '}])',
+            array = [],
+            valid = true;
+
+        for (var i = 0, len = str.length; i < len; i++) {
+            console.log(open.indexOf(str[i]));
+            if (open.indexOf(str[i]) >= 0) {
+            array.push(open.indexOf(str[i]));
+            } else if (close.indexOf(str[i]) >= 0) {
+            if (close.indexOf(str[i]) != array.pop()) {
+                valid = false;
+            }
+            }
+        }
+
+        if (array.length) {
+            valid = false;
+        }
+
+        input.className = valid ? 'valid' : 'error';
+        }
+        btn.addEventListener('click', pro)
+    
+    </script>
+</body>
+</html>
